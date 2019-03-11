@@ -10,7 +10,6 @@ let decodeFx = json => Json.Decode.{
   rate: json |> field("rate",string)
 };
 let decodeFxs = json => Json.Decode.array(decodeFx, json);
-// let currencies:currencies = Belt.List.fromArray(decodeFxs)
 let json = (json) =>
   json
   |. Js.Json.stringifyAny

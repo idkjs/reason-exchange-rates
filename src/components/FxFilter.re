@@ -18,3 +18,4 @@ let rates = (curr: fx) : string => {
     | EUR => "EUR"
   }
 };
+

@@ -71,7 +71,8 @@ let make = (~currency, ~onCurrencyChange, _children) => {
                     rate->s
                     </Text>
                   </TouchableOpacity>;
-              let filterFx = (item:Currency.t) => switch(item.currency) {
+              let filterFx = (item:Currency.t) =>
+              switch(item.currency) {
                 | "USD" | "EUR"| "BTC" | "LTC" | "JPY" | "ETH" => (currency !== item.currency) ? renderItem(item) : ReasonReact.null
                 | _ => ReasonReact.null;
               };
