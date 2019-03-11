@@ -1,0 +1,45 @@
+{
+  "name": "apollo-client-20-example",
+  "version": "0.0.177",
+  "description": "Sample project for Apollo Mission Briefing 001 featuring Apollo Client 2.0 & Launchpad\n\nLaunchpad: https://launchpad.graphql.com/w5xlvm3vzz",
+  "keywords": [
+    "apollo",
+    "react",
+    "graphql",
+    "react-native-web"
+  ],
+  "homepage": "https://codesandbox.io/s/jvlrl98xw3",
+  "main": "index.js",
+  "dependencies": {
+    "@glennsl/bs-json": "3.0.0",
+    "apollo-cache-inmemory": "1.5.1",
+    "apollo-client": "2.5.1",
+    "apollo-link-http": "1.5.12",
+    "bs-react-native": "0.10.0",
+    "get_in_ppx": "1.0.2",
+    "graphql": "14.1.1",
+    "graphql-tag": "2.10.1",
+    "graphql_ppx": "0.2.8",
+    "numeral": "2.0.6",
+    "react": "16.8.4",
+    "react-apollo": "2.5.2",
+    "react-art": "16.8.4",
+    "react-dom": "16.8.4",
+    "react-native-web": "0.10.1",
+    "reason-apollo": "0.15.2",
+    "reason-react": "0.5.3"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.0.0-dev.4",
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "watch": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "react-scripts test --env=jsdom",
+    "schema": "yarn send-introspection-query https://48p1r2roz4.sse.codesandbox.io",
+    "eject": "react-scripts eject"
+  }
+}
