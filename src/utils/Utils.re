@@ -7,8 +7,7 @@ let nullableStringToElement = obj =>
     | Some(str) => str
     }
   )
-  |> s
+  |> s;
 
-let filter = (~f, list) =>
-  list |> ListLabels.filter(~f);
+let filter = (~f, list) => list |> ListLabels.filter(~f);
 let find = (~f, list) => list |> ListLabels.find(~f);
