@@ -14,6 +14,13 @@ module Styles = {
             borderBottomWidth(1.),
             borderBottomColor(String(Colors.teal)),
           ]),
+        "currencyWrapperWithoutBorder":
+          style([
+            padding(Pt(20.)),
+            flexDirection(Row),
+            justifyContent(SpaceBetween),
+            alignItems(FlexStart),
+          ]),
         "currency":
           style([
             fontSize(Float(64.)),
@@ -55,16 +62,34 @@ let make = (~currency, ~onCurrencyChange, _children) => {
           | Some(rates) =>
             let realMatches = rates->Belt.Array.keepMap(match => match);
             let decodedFx: array(Currency.t) = Currency.json(realMatches);
-            let renderItem = ({currency, rate}: Currency.t) =>
+            let filterFxRaw = (item: Currency.t) =>
+              switch (item.currency) {
+              | "USD"
+              | "EUR"
+              | "BTC"
+              | "LTC"
+              | "JPY"
+              | "ETH" => Some(item)
+              | _ => None
+              };
+              // let filteredFx = decodedFx->Belt.Array.map(filterFxRaw);
+            // let filteredFxWithIndex = filteredFx->Belt.Array.mapWithIndex;
+
+            let renderItem = (index,{currency, rate}: Currency.t) =>{
+              Js.log2(currency,index);
               <TouchableOpacity
                 key=currency
                 accessibilityLabel="button"
                 onPress={_e => onCurrencyChange(currency)}
-                style=Styles.styles##currencyWrapper>
+                style={
+                  index == 3 ?
+                    Styles.styles##currencyWrapperWithoutBorder :
+                    Styles.styles##currencyWrapper
+                }>
                 <Text style=Styles.styles##currency> currency->s </Text>
                 <Text style=Styles.styles##currency> rate->s </Text>
-              </TouchableOpacity>;
-            let filterFx = (item: Currency.t) =>
+              </TouchableOpacity>};
+            let filterFx = (index,item: Currency.t) =>
               switch (item.currency) {
               | "USD"
               | "EUR"
@@ -73,12 +98,11 @@ let make = (~currency, ~onCurrencyChange, _children) => {
               | "JPY"
               | "ETH" =>
                 currency !== item.currency ?
-                  renderItem(item) : ReasonReact.null
+                  renderItem(index, item) : ReasonReact.null
               | _ => ReasonReact.null
               };
             <View style=Styles.styles##container>
-              {Belt.Array.map(decodedFx, x => filterFx(x))
-               |> ReasonReact.array}
+                {decodedFx->Belt.Array.mapWithIndex(filterFx)->ReasonReact.array}
             </View>;
           }
         }

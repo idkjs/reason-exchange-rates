@@ -22,3 +22,4 @@ yarn-error.log*
 lib
 .bsb.lock
 .merlin
+scratch

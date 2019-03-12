@@ -47,6 +47,19 @@ var styles = StyleSheet$BsReactNative.create({
               ]
             ]
           ]),
+      currencyWrapperWithoutBorder: Style$BsReactNative.style(/* :: */[
+            Style$BsReactNative.padding(/* Pt */Block.__(0, [20])),
+            /* :: */[
+              Style$BsReactNative.flexDirection(/* Row */0),
+              /* :: */[
+                Style$BsReactNative.justifyContent(/* SpaceBetween */5),
+                /* :: */[
+                  Style$BsReactNative.alignItems(/* FlexStart */0),
+                  /* [] */0
+                ]
+              ]
+            ]
+          ]),
       currency: Style$BsReactNative.style(/* :: */[
             Style$BsReactNative.fontSize(/* Float */Block.__(0, [64])),
             /* :: */[
@@ -221,39 +234,42 @@ function make$1(currency, onCurrencyChange, _children) {
                                               return match_;
                                             }));
                                       var decodedFx = Currency$ReactTemplate.json(realMatches);
-                                      return ReasonReact.element(undefined, undefined, View$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.container), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[Belt_Array.map(decodedFx, (function (x) {
-                                                              var item = x;
-                                                              var match = item[/* currency */0];
-                                                              var exit = 0;
-                                                              switch (match) {
-                                                                case "BTC" : 
-                                                                case "ETH" : 
-                                                                case "EUR" : 
-                                                                case "JPY" : 
-                                                                case "LTC" : 
-                                                                case "USD" : 
-                                                                    exit = 1;
-                                                                    break;
-                                                                default:
-                                                                  return null;
-                                                              }
-                                                              if (exit === 1) {
-                                                                var match$1 = currency !== item[/* currency */0];
-                                                                if (match$1) {
-                                                                  var param = item;
-                                                                  var currency$1 = param[/* currency */0];
-                                                                  return ReasonReact.element(currency$1, undefined, TouchableOpacity$BsReactNative.make(undefined, "button", undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.currencyWrapper), undefined, (function (_e) {
-                                                                                      return Curry._1(onCurrencyChange, currency$1);
-                                                                                    }), undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[
-                                                                                  ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.currency), undefined, undefined, undefined, undefined, undefined, undefined, undefined, /* array */[Utils$ReactTemplate.s(currency$1)])),
-                                                                                  ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.currency), undefined, undefined, undefined, undefined, undefined, undefined, undefined, /* array */[Utils$ReactTemplate.s(param[/* rate */1])]))
-                                                                                ]));
-                                                                } else {
-                                                                  return null;
-                                                                }
-                                                              }
-                                                              
-                                                            }))]));
+                                      var filterFx = function (index, item) {
+                                        var match = item[/* currency */0];
+                                        var exit = 0;
+                                        switch (match) {
+                                          case "BTC" : 
+                                          case "ETH" : 
+                                          case "EUR" : 
+                                          case "JPY" : 
+                                          case "LTC" : 
+                                          case "USD" : 
+                                              exit = 1;
+                                              break;
+                                          default:
+                                            return null;
+                                        }
+                                        if (exit === 1) {
+                                          var match$1 = currency !== item[/* currency */0];
+                                          if (match$1) {
+                                            var index$1 = index;
+                                            var param = item;
+                                            var currency$1 = param[/* currency */0];
+                                            console.log(currency$1, index$1);
+                                            var match$2 = index$1 === 3;
+                                            return ReasonReact.element(currency$1, undefined, TouchableOpacity$BsReactNative.make(undefined, "button", undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(match$2 ? styles.currencyWrapperWithoutBorder : styles.currencyWrapper), undefined, (function (_e) {
+                                                                return Curry._1(onCurrencyChange, currency$1);
+                                                              }), undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[
+                                                            ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.currency), undefined, undefined, undefined, undefined, undefined, undefined, undefined, /* array */[Utils$ReactTemplate.s(currency$1)])),
+                                                            ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.currency), undefined, undefined, undefined, undefined, undefined, undefined, undefined, /* array */[Utils$ReactTemplate.s(param[/* rate */1])]))
+                                                          ]));
+                                          } else {
+                                            return null;
+                                          }
+                                        }
+                                        
+                                      };
+                                      return ReasonReact.element(undefined, undefined, View$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, Caml_option.some(styles.container), undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)(/* array */[Belt_Array.mapWithIndex(decodedFx, filterFx)]));
                                     } else {
                                       return ReasonReact.element(undefined, undefined, Text$BsReactNative.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, /* array */["Loading"]));
                                     }
