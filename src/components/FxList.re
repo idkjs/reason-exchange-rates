@@ -7,10 +7,7 @@ module Styles = {
         "container":
           style(
             ~width=100.->pct,
-            ~flex=1.,
-            ~justifyContent=`center,
-            ~alignItems=`center,
-            ~backgroundColor="#F5FCFF",
+            ~padding=20.->dp,
             (),
           ),
         "currencyWrapper":
