@@ -1,7 +1,7 @@
 {
   "name": "react-template",
   "reason": {
-    "react-jsx": 2
+    "react-jsx": 3
   },
   "sources": {
     "dir" : "src",
@@ -15,7 +15,7 @@
   "namespace": true,
   "bs-dependencies": [
     "reason-react",
-    "bs-react-native",
+    "reason-react-native",
     "reason-apollo",
     "@glennsl/bs-json"
   ],

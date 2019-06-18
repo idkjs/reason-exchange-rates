@@ -1,4 +1,4 @@
-let s = ReasonReact.string;
+let s = React.string;
 
 let nullableStringToElement = obj =>
   (

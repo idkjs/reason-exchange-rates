@@ -1,4 +1,4 @@
-open BsReactNative;
+open ReactNative;
 let inMemoryCache = ApolloInMemoryCache.createInMemoryCache();
 let httpLink =
   ApolloLinks.createHttpLink(

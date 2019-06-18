@@ -1,4 +1,4 @@
-open BsReactNative;
+open ReactNative;
 
 module FontSize = {
   let large = "96px";
@@ -10,9 +10,10 @@ let styles =
   StyleSheet.create(
     Style.{
       "container":
-        style([
-          height(Pct(100.)),
-          backgroundColor(String(Colors.darkBlue)),
-        ]),
+        style(
+          ~height=100.->pct,
+          ~backgroundColor=Colors.darkBlue,
+          (),
+        ),
     },
   );

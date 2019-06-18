@@ -18,15 +18,21 @@ let rates = (curr: fx): string => {
   | EUR => "EUR"
   };
 };
-let filtered = (list:Currency.currencies) => Belt.List.reduce(list, Belt.Map.String.empty, (acc, p) => {
-  Belt.Map.String.update(acc, p.currency, fun
-    | None => Some([p])
-    | Some(places) => switch (p.currency) {
-    | "USD" | "EUR" | "BTC"
-              | "LTC"
-              | "JPY"
-              | "ETH" => Some([p, ...places])
-    }
-  )
-  }
-);
+let filtered = (list: Currency.currencies) =>
+  Belt.List.reduce(list, Belt.Map.String.empty, (acc, p) =>
+    Belt.Map.String.update(
+      acc,
+      p.currency,
+      fun
+      | None => Some([p])
+      | Some(places) =>
+        switch (p.currency) {
+        | "USD"
+        | "EUR"
+        | "BTC"
+        | "LTC"
+        | "JPY"
+        | "ETH" => Some([p, ...places])
+        },
+    )
+  );

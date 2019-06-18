@@ -1,36 +1,39 @@
 {
-  "name": "apollo-client-20-example",
+  "name": "reason-exchange-rates",
   "version": "0.0.177",
-  "description": "Sample project for Apollo Mission Briefing 001 featuring Apollo Client 2.0 & Launchpad\n\nLaunchpad: https://launchpad.graphql.com/w5xlvm3vzz",
+  "description": "Port of https://codesandbox.io/s/jvlrl98xw3 to ReasonML and reason-react-native.",
+  "author": "Alain Armand <aarmand.inbox@gmail.com>",
   "keywords": [
     "apollo",
     "react",
     "graphql",
-    "react-native-web"
+    "react-native-web",
+    "reason-react-native",
+    "reasonml",
+    "ocaml"
   ],
-  "homepage": "https://codesandbox.io/s/jvlrl98xw3",
   "main": "index.js",
   "dependencies": {
-    "@glennsl/bs-json": "3.0.0",
-    "apollo-cache-inmemory": "1.5.1",
-    "apollo-client": "2.5.1",
-    "apollo-link-http": "1.5.12",
-    "bs-react-native": "0.10.0",
+    "@glennsl/bs-json": "4.0.0",
+    "apollo-cache-inmemory": "1.6.2",
+    "apollo-client": "2.6.3",
+    "apollo-link-http": "1.5.15",
     "get_in_ppx": "1.0.2",
-    "graphql": "14.1.1",
+    "graphql": "14.3.1",
     "graphql-tag": "2.10.1",
     "graphql_ppx": "0.2.8",
     "numeral": "2.0.6",
-    "react": "16.8.4",
-    "react-apollo": "2.5.2",
-    "react-art": "16.8.4",
-    "react-dom": "16.8.4",
-    "react-native-web": "0.10.1",
-    "reason-apollo": "0.15.2",
-    "reason-react": "0.5.3"
+    "react": "16.8.6",
+    "react-apollo": "2.5.6",
+    "react-art": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-native-web": "0.11.4",
+    "reason-apollo": "0.16.4",
+    "reason-react": "0.7.0",
+    "reason-react-native": "0.60.0"
   },
   "devDependencies": {
-    "bs-platform": "^5.0.0-dev.4",
+    "bs-platform": "^5.0.4",
     "react-scripts": "1.0.0"
   },
   "scripts": {
