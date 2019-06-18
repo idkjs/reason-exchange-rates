@@ -48,34 +48,6 @@ module Styles = {
       })
     );
 };
-// StyleSheet.create(
-//   Style.{
-//     "container": style(width(Pct(100.)), padding(Pt(20.))),
-//     "currencyWrapper":
-//       style(
-//         padding(Pt(20.)),
-//         flexDirection(Row),
-//         justifyContent(SpaceBetween),
-//         alignItems(Center),
-//         borderBottomWidth(1.),
-//         borderBottomColor(String(Colors.teal)),
-//       ),
-//     "currencyWrapperWithoutBorder":
-//       style(
-//         padding(Pt(20.)),
-//         flexDirection(Row),
-//         justifyContent(SpaceBetween),
-//         alignItems(FlexStart),
-//       ),
-//     "currency":
-//       style(
-//         fontSize(Float(64.)),
-//         fontWeight(`_100),
-//         color(String(Colors.grey)),
-//         letterSpacing(4.),
-//       ),
-//   },
-// );
 
 module ExchangeRateQuery = [%graphql
   {|
